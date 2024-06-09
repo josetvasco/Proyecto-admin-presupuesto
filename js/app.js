@@ -12,7 +12,25 @@ function eventListener() {
 
 
 // Clases
+class Presupuesto {
+  constructor( presupuesto ) {
+    this.presupuesto = Number(presupuesto);
+    this.restante = Number(presupuesto);
+    this.gastos = [];
+  }
+}
 
+class UI {
+  insertarpresupuesto(cantidad) {
+    const { presupuesto, restante } = cantidad;
+    document.querySelector('#total').textContent = presupuesto;
+    document.querySelector('#restante').textContent = presupuesto;
+  }
+}
+
+// Instanciar
+const ui = new UI();
+let presupuesto;
 
 
 // Funciones
@@ -23,5 +41,8 @@ function preguntarPresupuesto() {
     window.location.reload();
   }
 
-  console.log(presupuestoUsuario)
+  presupuesto = new Presupuesto(presupuestoUsuario);
+  console.log(presupuesto)
+
+  ui.insertarpresupuesto(presupuesto); 
 }
