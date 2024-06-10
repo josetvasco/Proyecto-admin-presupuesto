@@ -20,7 +20,6 @@ class Presupuesto {
     this.presupuesto = Number(JSON.parse(localStorage.getItem('presupuesto')));
     this.restante = Number(presupuesto);
     this.gastos = llamarLocalStorage();
-    console.log(this.gastos)
   }
 
   nuevoGasto(gasto) {
@@ -99,7 +98,6 @@ class UI {
   }
 
   actualizarRestante(restante) {
-    console.log(restante)
     document.querySelector('#restante').textContent = restante;
   }
 
@@ -112,7 +110,7 @@ class UI {
       restanteDiv.classList.remove('alert-success', 'alert-warning');
       restanteDiv.classList.add('alert-danger');
     } else if( (presupuesto / 2) > restante) {
-      restanteDiv.classList.remove('alert-success');
+      restanteDiv.classList.remove('alert-success', 'alert-danger');
       restanteDiv.classList.add('alert-warning');
     } else {
       restanteDiv.classList.remove('alert-danger', 'alert-warning');
